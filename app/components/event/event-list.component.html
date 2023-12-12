@@ -1,0 +1,25 @@
+<section class="container">
+  <h1>Eventos</h1>
+  <div *ngIf="events">
+    <div class="row" *ngFor="let chunk of events.chunk(3)">
+      <md-card (click)="showDetail(event)" *ngFor="let event of chunk" class="col-lg-4">
+        <md-card-header>
+          <!--<img md-card-avatar src="https://static.thoughtworks.com/images/photo-card-grid/tech-radar-april16.jpg">
+          -->
+          <md-card-title>{{event.name}}</md-card-title>
+          <!--TODO move this to detail, now is a proof of concept-->
+          <md-card-subtitle>Expositores</md-card-subtitle>
+          <div *ngFor="let speaker of event.speakers">
+            <p>{{speaker.name}}</p>
+          </div>
+        </md-card-header>
+
+        <!--<img md-card-image height="200px" src="https://static.thoughtworks.com/images/photo-card-grid/tech-radar-april16.jpg">
+        -->
+        <md-card-content>
+          <p>{{event.description}}</p>
+        </md-card-content>
+      </md-card>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,11 @@
+.phrase{
+    color: white;
+}
+
+#login {
+    background-image: url('img/knowledge.jpg');
+}
+
+.jumbotron.absolute-background .content {
+    top: 25%;
+}

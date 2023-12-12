@@ -1,0 +1,40 @@
+<div id="login" class="jumbotron absolute-background image-background">
+  <div class="background black-background"></div>
+  <div class="content text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 block-center">
+          <div class="phrase">
+            <h1>Conectate a una red de miles de personas y eventos</h1>
+            <h2>A solo un paso</h2>
+          </div>
+        </div>
+        <div class="col-lg-6 block-center">
+          <md-card>
+            <md-toolbar color="primary">
+              Inicia sesión
+            </md-toolbar>
+            <md-card-content>
+              <form [formGroup]="userForm" (ngSubmit)="login()">
+                <md-input type="email" formControlName="email" class="full-width" placeholder="Correo electrónico" 
+                  required dividerColor="{{ errors.email ? 'warn' : 'primary' }}">
+                  <md-hint [hidden]="!errors.email" align="end">
+                    <span>{{ errors.email }}</span>
+                  </md-hint>
+                </md-input>
+                <md-input type="password" formControlName="password" class="full-width" placeholder="Contraseña" 
+                  required dividerColor="{{ errors.password ? 'warn' : 'primary' }}">
+                  <md-hint [hidden]="!errors.password" align="end">
+                    <span>{{ errors.password }}</span>
+                  </md-hint>
+                </md-input>
+                <div class="full-width" style="color:red">{{errorMessage}}</div>
+                <button [disabled]="!userForm.valid" md-raised-button>Enviar</button>
+              </form>
+            </md-card-content>
+          </md-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

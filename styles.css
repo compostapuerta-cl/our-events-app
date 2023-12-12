@@ -1,0 +1,114 @@
+/*Global*/
+body{
+    margin:0px;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+h1, h2, h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+/*.absolute-background*/
+.absolute-background {
+    position: relative;
+    width: 100%;
+    padding: 0;
+}
+
+.absolute-background .content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.absolute-background .background {
+    width: 100%;
+    height: 100%;
+}
+
+.black-background{
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.image-background{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 0px;
+}
+
+.jumbotron {
+    height: 550px;
+}
+
+.jumbotron.absolute-background .content {
+    top: 30%;
+}
+
+/*custom helpers*/
+.text-center {
+    text-align: center;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.fill-remaining {
+    flex: 1 1 auto;
+}
+
+.block-center {
+    margin: auto;
+}
+
+/*material design custom*/
+md-icon {
+    font-size: 100%;
+    height: inherit;
+    vertical-align: top;
+    width: inherit;
+}
+
+[md-raised-button], [md-fab], [md-mini-fab], [md-button], [md-icon-button] {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+md-card {
+    margin: 16px;
+    padding: 0px !important;
+}
+
+md-card md-card-content {
+    padding: 16px;
+}
+
+md-input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+md-hint {
+    position: absolute;
+    font-size: 75%;
+    bottom: -0.5em;
+}
+
+/*TODO remove this in an angular 2 material future release*/
+md-input.ng-invalid {
+    color: #f44336;
+}

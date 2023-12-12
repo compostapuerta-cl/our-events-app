@@ -1,0 +1,56 @@
+<md-card>
+    <!--
+        TODO financial share
+        estimated revenue, estimated expense with it's currency
+        who will own the conference name?
+      -->
+    <md-toolbar color="primary">
+        Auspiciadores
+    </md-toolbar>
+    <md-card-content>
+        <form (ngSubmit)="addSponsor()" #sponsorForm="ngForm">
+            <div class="row">
+                <div class="col-lg-4">
+                    <md-input class="full-width" name="searchText" [(ngModel)]="searchText" placeholder="Busca por nombre una organización" #searchBox
+                        (keyup)="search(searchBox.value)" required>
+                    </md-input>
+                    <div [hidden]="(!searchText || 0 === searchText.length) || isItemSelected">
+                        <md-list class="md-menu md-overlay-pane">
+                            <div *ngIf="existItems">
+                                <md-list-item (click)="select(item)" *ngFor="let item of items">
+                                    <h3 md-line> {{item.name}} </h3>
+                                    <p md-line><span> {{item.shortDescription}} </span> </p>
+                                    <p>{{isItemSelected}}</p>
+                                </md-list-item>
+                            </div>
+                            <div *ngIf="!existItems">
+                                <md-list-item>
+                                    <h3 md-line>Agregar a {{searchText}} como empresa</h3>
+                                    <p>{{isItemSelected}}</p>
+                                </md-list-item>
+                            </div>
+                        </md-list>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <md-input class="full-width" name="type" [(ngModel)]="type" placeholder="Tipo de auspiciador (e.g. Golden o Platinum)" required>
+                    </md-input>
+                </div>
+                <div class="col-lg-2">
+                    <button md-fab type="submit" [disabled]="!isItemSelected || !sponsorForm.form.valid">
+                        <md-icon class="md-24">add</md-icon>
+                    </button>
+                </div>
+            </div>
+        </form>
+        <!--TODO change this to [key, value] iterator when angular 2 improve it-->
+        <div *ngIf="event && event.sponsorsByType.size > 0">
+            <div class="row" *ngFor="let sponsorType of event.sponsorsByType | keyValue">
+                {{sponsorType.key}}
+                <div class="row" *ngFor="let sponsor of sponsorType.value">
+                    {{sponsor.name}}
+                </div>
+            </div>
+        </div>
+    </md-card-content>
+</md-card>

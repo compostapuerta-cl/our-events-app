@@ -1,0 +1,39 @@
+<nav>
+    <md-toolbar>
+        <span class="brand">
+            <a routerLink="/">
+                <img src="img/logo.png" height="120px"/>
+            </a>
+        </span>
+
+        <span class="fill-remaining"></span>
+
+        <ul *ngIf="!isLoggedIn" class="navbar">
+            <li><a routerLink="/login">Inicia sesión</a></li>
+            <li><a routerLink="/registrate">Registrate</a></li>
+        </ul>
+        <div *ngIf="isLoggedIn">
+            <span>
+                <a routerLink="/eventos/crear" md-raised-button color="primary">Crear evento</a>
+            </span>
+            <span><a>{{user.name}}</a></span>
+            <span>
+                <button md-icon-button [md-menu-trigger-for]="menu">
+                    <md-icon>more_vert</md-icon>
+                </button>
+            </span>
+
+            <md-menu #menu="mdMenu" x-position="before">
+                <button md-menu-item> Configuración </button>
+                <button md-menu-item> Ayuda </button>
+                <button md-menu-item (click)="logout()"> Cerrar sesión</button>
+            </md-menu>
+        </div>
+
+    </md-toolbar>
+</nav>
+<router-outlet></router-outlet>
+
+<footer>
+    Mi footer
+</footer>
